@@ -17,3 +17,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/archives/', function(){
+    return view('archives.index');
+});
+
+Route::get('/archives/{category}/', function($category){
+    return view('archives.category', ['category'=>$category]);
+});
+
+Route::post('/join/', function(){
+    return '入会申し込み完了';
+});
+
+Route::get('/join/', function(){
+    return redirect()->to('/');
+});
+
+Route::get('/{id}/', function($id){
+    return $id . 'のページ';
+});
+
+Route::get('/sum/{x}/{y}/', function($x, $y){
+    $answer = $x + $y;
+    return view('sum', ['x'=>$x, 'y'=>$y, 'answer'=>$answer]);
+});
